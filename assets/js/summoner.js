@@ -20,6 +20,7 @@ $('#summoner-submit').on('click', function (event) {
             let div2 = $('<div>')
             let img = $('<img>')
             $('#account-info').empty();
+            $('#account-image').empty();
             switch (objectCall.tier) {
                 case 'CHALLENGER':
                     img.attr('src', './assets/images/emblems/Emblem_Challenger.png')
