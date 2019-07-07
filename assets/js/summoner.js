@@ -15,7 +15,9 @@ $('#summoner-submit').on('click', function (event) {
             url: "https://cors-anywhere.herokuapp.com/https://na1.api.riotgames.com/lol/league/v4/entries/by-summoner/" + encryptedID + "?api_key=RGAPI-d64ed730-d9b8-4ab6-aabe-b7557f8f43e0"
         }).then(function (call) {
             let objectCall = call[0]
+            console.log(objectCall)
             let div = $('<div>')
+            let div2 = $('<div>')
             let img = $('<img>')
             $('#account-info').empty();
             switch (objectCall.tier) {
@@ -49,10 +51,12 @@ $('#summoner-submit').on('click', function (event) {
                 default:
                     console.log('Unranked')
             }
-            div.text(call[0].tier + " " + call[0].rank)
-            img.attr('class', 'w-25')
+            div2.attr('class', 'mt-2')
+            div2.html(objectCall.queueType + '<br />' + objectCall.tier + " " + objectCall.rank)
+            img.attr('class', 'w-100')
             div.prepend(img)
-            $('#account-info').append(div)
+            $('#account-image').append(div)
+            $('#account-info').append(div2)
         })
     })
 })
