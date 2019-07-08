@@ -5,14 +5,14 @@ $('#summoner-submit').on('click', function (event) {
     console.log(summonerName)
     $.ajax({
         method: "GET",
-        url: "https://cors-anywhere.herokuapp.com/https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + summonerName + "?api_key=RGAPI-d64ed730-d9b8-4ab6-aabe-b7557f8f43e0"
+        url: "https://cors-anywhere.herokuapp.com/https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + summonerName + "?api_key=RGAPI-419d0891-201e-48be-b9e7-fe264d4b12dd"
     }).then(function (response) {
         let accountID = response.accountID
         let encryptedID = response.id
         console.log(encryptedID)
         $.ajax({
             method: "GET",
-            url: "https://cors-anywhere.herokuapp.com/https://na1.api.riotgames.com/lol/league/v4/entries/by-summoner/" + encryptedID + "?api_key=RGAPI-d64ed730-d9b8-4ab6-aabe-b7557f8f43e0"
+            url: "https://cors-anywhere.herokuapp.com/https://na1.api.riotgames.com/lol/league/v4/entries/by-summoner/" + encryptedID + "?api_key=RGAPI-419d0891-201e-48be-b9e7-fe264d4b12dd"
         }).then(function (call) {
             let objectCall = call[0]
             console.log(objectCall)
